@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Sun Nov 18 18:07:51 2018
-
-@author: Levon
-"""
 
 from collections import namedtuple
 
@@ -91,7 +86,7 @@ def syllabify(word):
             elif position == len(word)-1 and sounds[word[position-1]].vc == "c":
                 nucleus = True
         # e
-        # TODO: this area needs further refinement to handle words like
+        # KNOWN ISSUE: this area needs further refinement to handle words like
         # 'barge' and 'marble'
         elif word[position] == "e":
             # medial e
@@ -111,7 +106,7 @@ def syllabify(word):
             new_syllable = Syllable(nucleus_str)
             
             # create onset using SSP
-            # TODO: needs further refinement to deal with nasal clusters
+            # KNOWN ISSUE: needs further refinement to deal with nasal clusters
             start = position
             if position > 0:
                 while start > 0 and sounds[word[start-1]].s <= sounds[word[start]].s \
